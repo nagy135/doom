@@ -32,8 +32,8 @@
 
 (setq doom-theme 'doom-gruvbox)
 
-(custom-set-faces! 'doom-gruvbox
-  '(default :background "0b0b0b"))
+;; (custom-set-faces! 'doom-gruvbox
+;;   '(default :background "0b0b0b"))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -67,3 +67,24 @@
 (require 'evil-snipe)
 (evil-snipe-mode +1)
 (evil-snipe-override-mode +1)
+
+(use-package php-mode
+  ;;
+  :hook ((php-mode . (lambda () (set (make-local-variable 'company-backends)
+       '(;; list of backends
+         company-phpactor
+         company-files
+         ))))))
+
+(setq lsp-clients-php-iph-server-command '("intelephense" "--stdio"))
+
+(after! org
+  (setq
+   org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
+   org-todo-keyword-faces
+   '(("TODO" :foreground "#f9dc2b" :weight normal :underline t)
+     ("WAITING" :foreground "#9f7efe" :weight normal :underline t)
+     ("INPROGRESS" :foreground "#0098dd" :weight normal :underline t)
+     ("DONE" :foreground "#50a14f" :weight normal :underline t)
+     ("CANCELLED" :foreground "#ff6480" :weight normal :underline t))
+   ))

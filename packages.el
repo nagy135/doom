@@ -51,3 +51,5 @@
 ;; (unpin! t)
 
 (package! evil-snipe)
+(package! phpactor)
+(package! company-phpactor)
