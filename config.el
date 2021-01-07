@@ -22,13 +22,18 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 ;;
-(setq doom-font (font-spec :family "monospace" :size 18 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "League Mono" :size 18)
+      doom-variable-pitch-font (font-spec :family "League Mono" :size 18))
+
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-manegarm)
+
+(setq doom-theme 'doom-gruvbox)
+
+(custom-set-faces! 'doom-gruvbox
+  '(default :background "0b0b0b"))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -38,6 +43,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+
+(setq which-key-idle-delay 0.3)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -55,3 +62,8 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+(require 'evil-snipe)
+(evil-snipe-mode +1)
+(evil-snipe-override-mode +1)
