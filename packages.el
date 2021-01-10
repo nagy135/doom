@@ -53,3 +53,6 @@
 (package! evil-snipe)
 (package! phpactor)
 (package! company-phpactor)
+(package! org-bullets)
+(package! all-the-icons-dired)
+(package! dired-hide-dotfiles)
